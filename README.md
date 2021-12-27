@@ -1,4 +1,4 @@
-## Welcome to My Github Page
+## Hi! I'm Briiqn. I develop in python, bash script, and a bit of java, I am currently taking a course on C
 
 
 ## My Projects Include:
