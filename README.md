@@ -2,4 +2,4 @@
 
 
 ## My Projects Include:
-[TuxClicker](url) 
+[TuxClicker](https://github.com/Briiqn/TuxClicker/blob/main/README.md) ## A python3 Minecraft AutoClicker 
