@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hola Senorita
+    </title>
+    <style>
+      h1 {
+        text-align: center;
+        position: relative;
+      }
+      h1:hover::after {
+        content: "#6732";
+        font-size: 0.6em;
+        position: absolute;
+        top: 50%;
+        right: 68px;
+        transform: translateY(-50%);
+      }
+      h1:hover {
+        animation-name: slide-left;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes slide-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-20px);
+        }
+      }
+    </style>
+    <style>
+      .name-container {
+        display: inline-block;
+        position: relative;
+        font-size: 32px;
+        font-weight: bold;
+        color: #000;
+        transition: transform 0.3s ease;
+      }
+      .name-container:hover {
+        transform: translateX(-50px);
+      }
+      .tag-container {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100px;
+        height: 50px;
+        background-color: #6732;
+        color: #fff;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        transform: translateX(-50%);
+        transition: all 0.3s ease;
+      }
+      .name-container:hover .tag-container {
+        display: block;
+      }
+      .name-container:hover .tag-container::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-right: 20px solid #6732;
+        transform: translateY(-50%);
+      }
+    </style>
+    <style>
+      body {
+        margin: 0;
+      }
+      .background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        outline: 2px solid #2c3e50;
+      }
+      .background h1, .background p {
+        margin: 0;
+      }
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .video-background video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: "Google Sans", sans-serif;
+      }
+      p {
+        font-size: 16px;
+        text-align: center;
+        margin: 0;
+        font-family: "Google Sans", sans-serif;
+        transition: all 0.3s ease-out;
+        transform-origin: center;
+      }
+      .zoom-out {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      button {
+        border-radius: 20px;
+        padding: 10px 20px;
+        background-color: #2c3e50;
+        color: #fff;
+        border: 3px solid #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover {
+        transform: scale(1.1);
+      }
+      .button-container {
+        position: relative;
+        margin-top: 20px;
+      }
+      .tiles-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .tile {
+        margin: 0 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      .tile img {
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <div class="video-background">
+    <video autoplay loop>
+      <source src="funny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="background">
+    <img src="https://cdn.discordapp.com/avatars/584177313877458947/13fdff5aefab62fecb1017a2368b1211.png?size=128" style="border-radius: 50%; width: 50px; height: 50px; margin-bottom: 10px; display: block; margin: 0 auto;">
+    <h1>Briiqn
+    </h1>
+    <p id="dev-lang" class="">Java
+    </p>
+    <div class="button-container">
+      <div class="button-bg">
+      </div>
+      <button onclick="" >Stuff
+        <div class="tiles-container">
+          <div class="tile">
+            <a href="https://github.com/Briiqn">
+              <img src="https://cdn.iconscout.com/icon/free/png-512/free-github-148-616149.png?f=avif&amp;w=64">
+            </a>
+          </div>
+          <div class="tile">
+            <a href="https://youtube.com/@briiqn.">
+              <img src="https://icons-for-free.com/download-icon-video+youtube+icon-1320192294490006733_64.ico">
+            </a>
+          </div>
+          <div class="tile">
+            <a href="https://bscscan.com/address/0xA6eD03581201E0EcCe943271E5BcF6ABf042d426">
+              <img src="https://www.iconfinder.com/icons/4691461/download/png/64">
+            </a>
+          </div>
+          <script>
+            const devLangEl = document.getElementById('dev-lang');
+            const devLangs = ['Kotlin', 'C', 'Python', 'Bash','Java',"HTML","JavaScript","CSS"];
+            let index = 0;
+            setInterval(() => {
+              devLangEl.classList.add('zoom-out');
+              setTimeout(() => {
+                devLangEl.textContent = devLangs[index];
+                devLangEl.classList.remove('zoom-out');
+                index = (index + 1) % devLangs.length;
+              }
+                         , 300);
+            }
+                        , 1500);
+          </script>
+          </body>
+        </html>
