@@ -14,7 +14,7 @@
         font-size: 0.6em;
         position: absolute;
         top: 50%;
-        right: 48px;
+        right: 68px;
         transform: translateY(-50%);
       }
       h1:hover {
@@ -180,10 +180,100 @@
     </style>
   </head>
 
-<video class="video-background" autoplay loop muted>
-  <source src="funny.mp4" type="video/mp4">
-</video>
+<style>
+    /* Style to make the iframe fill the screen */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
 
+    /* Style to create the overlay */
+    #video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+    }
+
+    /* Style to hide the player controls on hover */
+    #video-container:hover #video-overlay {
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    /* Style to show the player controls when hovering over the overlay */
+    #video-overlay:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Style to hide the player controls */
+    .ytp-chrome-top, .ytp-chrome-bottom {
+        display: none !important;
+    }
+</style>
+
+<!-- Embedded YouTube video with autoplay and loop -->
+<div id="video-container">
+    <div id="player"></div>
+    <div id="video-overlay"></div>
+</div>
+
+<script>
+    // Load the YouTube Player API script asynchronously
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Create the YouTube player after the API script has loaded
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '100%',
+            width: '100%',
+            videoId: 'XzfWbi9xkgs',
+            playerVars: {
+                'autoplay': 1,
+                'loop': 1,
+                'mute': 1,
+                'controls': 0
+            },
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    // Unmute the video 1 second after the player is ready
+    function onPlayerReady(event) {
+        setTimeout(function() {
+            event.target.unMute();
+        }, 1000);
+    }
+</script>
+
+<script>
+    // Autoplay the video on page load
+    window.onload = function() {
+        var iframe = document.getElementsByTagName('iframe')[0];
+        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    };
+</script>
 <script>
 function checkAutoplay() {
   const video = document.querySelector('.video-background video');
@@ -221,7 +311,7 @@ video.setAttribute('muted', checkAutoplay());
           </div>
           <div class="tile">
             <a href="https://bscscan.com/address/0xA6eD03581201E0EcCe943271E5BcF6ABf042d426">
-              <img src="https://icons-for-free.com/download-icon-wallet+icon-1320190636366256884_64.png">
+              <img src="https://www.iconfinder.com/icons/4691461/download/png/64">
             </a>
           </div>
           <script>
