@@ -168,14 +168,36 @@
         display: block;
         width: 100%;
       }
+
+      video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
     </style>
   </head>
-  <div class="video-background">
-    <video autoplay loop>
-      <source src="funny.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+
+<video class="video-background" autoplay loop muted>
+  <source src="funny.mp4" type="video/mp4">
+</video>
+
+<script>
+function checkAutoplay() {
+  const video = document.querySelector('.video-background video');
+  if (video.currentTime === 0 && !video.paused) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+const video = document.querySelector('.video-background video');
+video.muted = true;
+video.setAttribute('muted', checkAutoplay());
+</script>
   <div class="background">
     <img src="https://cdn.discordapp.com/avatars/584177313877458947/13fdff5aefab62fecb1017a2368b1211.png?size=128" style="border-radius: 50%; width: 50px; height: 50px; margin-bottom: 10px; display: block; margin: 0 auto;">
     <h1>Briiqn
@@ -199,7 +221,7 @@
           </div>
           <div class="tile">
             <a href="https://bscscan.com/address/0xA6eD03581201E0EcCe943271E5BcF6ABf042d426">
-              <img src="aaaa.png">
+              <img src="https://www.iconfinder.com/icons/4691461/download/png/64">
             </a>
           </div>
           <script>
