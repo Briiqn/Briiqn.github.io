@@ -1,4 +1,4 @@
-## Hi! I'm Briiqn. I develop in python, bash script, and a bit of java, I am currently taking a course on C
+## Hi! I'm Briiqn. I work on projects within the JVM
 
 
 ## My Projects Include:
